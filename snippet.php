@@ -20,7 +20,7 @@ function my_novalidate($form_tag, $form) {
 }
 add_filter('gform_form_tag','my_novalidate',10,2);
 
-// add "http://" to website if protocol omitted
+// add "https://" to website if protocol omitted
 function my_protocol($form) {
 
   // loop through fields, taking action if website
@@ -33,10 +33,10 @@ function my_protocol($form) {
   // retrieve website field value
   $value = RGFormsModel::get_field_value($field);
 
-  // if there is no protocol, add "http://"
+  // if there is no protocol, add "https://"
   // Recognizes ftp://, ftps://, http://, https://
   if ( ! empty($value) && ! preg_match("~^(?:f|ht)tps?://~i", $value) ) {
-    $value = "http://" . $value;
+    $value = "https://" . $value;
 
     // update value in the $_POST array
     $id = (string) $field['id'];
