@@ -1,5 +1,4 @@
 // add the 'novalidate' setting to <form> tag
-// stackoverflow.com/questions/3090369/
 function my_novalidate($form_tag, $form) {
 
   // collect field types
@@ -36,7 +35,6 @@ function my_protocol($form) {
 
   // if there is no protocol, add "http://"
   // Recognizes ftp://, ftps://, http://, https://
-  // stackoverflow.com/questions/2762061/
   if ( ! empty($value) && ! preg_match("~^(?:f|ht)tps?://~i", $value) ) {
     $value = "http://" . $value;
 
